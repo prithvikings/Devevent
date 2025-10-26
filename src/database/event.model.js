@@ -156,7 +156,6 @@ function normalizeTime(timeString) {
 }
 
 // Indexes for performance and uniqueness
-EventSchema.index({ slug: 1 }, { unique: true });
 EventSchema.index({ date: 1, mode: 1 });
 
 const Event = models.Event || model('Event', EventSchema);
