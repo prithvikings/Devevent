@@ -14,10 +14,11 @@ const martianMono = Martian_Mono({
 
 
 export const metadata = {
-  title: "Devevent",
+  title: "Devevent | Developer Event Platform",
   description: "The ultimate developer event platform for connecting, learning, and growing. || Join us to explore the latest in tech, network with peers, and elevate your skills.",
   keywords: "developer, events, networking, learning, technology",
   authors: [{ name: "Devevent", url: "https://devevent.vercel.app" }],
+  
 };
 
 export default function RootLayout({ children }) {

@@ -1,3 +1,8 @@
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
+
 import { Event } from '@/database';
 import connectDB from '@/lib/mongoose';
 import { NextResponse as Response } from 'next/server';
@@ -21,8 +26,8 @@ export async function POST(req) {
             return Response.json({ error: 'Image file is required' }, { status: 400 });
         }
 
-        let tags=json.parse(formData.get('tags'));
-        let agenda=json.parse(formData.get('agenda'));
+        let tags = JSON.parse(formData.get('tags') || '[]');
+let agenda = JSON.parse(formData.get('agenda') || '[]');
         const arrayBuffer= await file.arrayBuffer();
         const buffer= Buffer.from(arrayBuffer);
         const uploadResult = await new Promise((resolve, reject) => {

@@ -6,10 +6,13 @@ const base_url = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default async function Home() {
 
-  'use cache';
-  cacheLife('hours')
+  // 'use cache';
+  // cacheLife('hours')
 
-  const response = await fetch(`${base_url}/api/events`);
+  const response = await fetch(`${base_url}/api/events`, {
+    next: { revalidate: 10 },
+});
+
   const { events } = await response.json();
   return (
     <section>
