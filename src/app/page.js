@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";  // <--- Add this line
+export const revalidate = 0;
+
 import EventCard from "@/components/EventCard";
 import ExploreBtn from "@/components/ExploreBtn";
 import { events } from "@/lib/constants";
@@ -10,7 +13,7 @@ export default async function Home() {
   // cacheLife('hours')
 
   const response = await fetch(`${base_url}/api/events`, {
-    next: { revalidate: 10 },
+    cache: 'no-store'
 });
 
   const { events } = await response.json();
